@@ -8,7 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.decorators import method_decorator
 from django.conf.urls import patterns, url
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render, render_to_response, redirect
 from django.template import RequestContext
 from django.contrib import messages
 
@@ -49,8 +49,8 @@ def bulk_change_dashboard_plugins(modeladmin, request, queryset):
         'opts': opts,
         'action_checkbox_name': helpers.ACTION_CHECKBOX_NAME,
     }
-    return render_to_response(
-        'dash/admin/bulk_change_dashboard_plugins.html', context, context=RequestContext(request)
+    return render(
+        request, 'dash/admin/bulk_change_dashboard_plugins.html', context=RequestContext(request)
         )
 
 # *********************************************************
