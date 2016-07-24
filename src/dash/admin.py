@@ -50,7 +50,7 @@ def bulk_change_dashboard_plugins(modeladmin, request, queryset):
         'action_checkbox_name': helpers.ACTION_CHECKBOX_NAME,
     }
     return render_to_response(
-        'dash/admin/bulk_change_dashboard_plugins.html', context, context_instance=RequestContext(request)
+        'dash/admin/bulk_change_dashboard_plugins.html', context, context=RequestContext(request)
         )
 
 # *********************************************************
@@ -197,11 +197,11 @@ class DashboardPluginAdmin(CompatModelAdmin):
             return redirect('admin:dash_dashboardplugin_changelist')
 
     def get_urls(self):
-        my_urls = patterns('',
+        my_urls = [
             # Bulk change dashboard plugins
             url(r'^bulk-change-dashboard-plugins/$', self.bulk_change_dashboard_plugins,
                 name='bulk_change_dashboard_plugins'),
-        )
+        ]
         return my_urls + super(DashboardPluginAdmin, self).get_urls()
 
 

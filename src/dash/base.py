@@ -777,7 +777,7 @@ class BaseDashboardPlugin(object):
     add_form_template = None
     edit_form_template = None
     html_classes = []
-    group = _("General")
+#    group = _("General")
 
     def __init__(self, layout_uid, placeholder_uid, workspace=None, \
                  user=None, position=None):

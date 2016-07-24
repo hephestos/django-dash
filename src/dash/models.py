@@ -96,7 +96,7 @@ class DashboardWorkspace(models.Model):
         verbose_name = _("Dashboard workspace")
         verbose_name_plural = _("Dashboard workspaces")
         unique_together = (('user', 'slug'), ('user', 'name'),)
-
+    
     def __unicode__(self):
         return self.name
 
